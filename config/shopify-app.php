@@ -175,7 +175,7 @@ return [
     |
     */
 
-    'api_key' => env('SHOPIFY_API_KEY', 'e39be36f220f401f30f6cf36169d9b93'),
+    'api_key' => env('SHOPIFY_API_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -186,7 +186,7 @@ return [
     |
     */
 
-    'api_secret' => env('SHOPIFY_API_SECRET', '1489e1e95cd5c746c2ccc8f33a9fe0f1'),
+    'api_secret' => env('SHOPIFY_API_SECRET', ''),
 
     /*
     |--------------------------------------------------------------------------

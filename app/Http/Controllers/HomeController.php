@@ -11,31 +11,41 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    // public function index()
-    // {
-    //     $shopify = new Shopify(
-    //         env('e39be36f220f401f30f6cf36169d9b93'),
-    //         env('1489e1e95cd5c746c2ccc8f33a9fe0f1'),
-    //         env('https://editions-demo.myshopify.com'),
-    //         env('2021-01')
-    //     );
-    //     return $shopify;
 
-    // }
     public function index(Request $request, Shopify $shopify)
     {
         $shopify = app('shopify');
-        $test = $shopify->get('metafields.json');
-        return $test;
+        $metafield = $shopify->getMetafields();
+        $product = $shopify->getProducts();
+
+        //blackdress
+        $productId ='7155516997808';
+        // $metafield = $shopify->getProductMetafields($productId);
+        // $createmetafield = $shopify->createProductMetafield($productId,[
+
+        //         'name' => 'testB',
+        //         'namespace' => 'testB',
+        //         'key'       => 'testB',
+        //         'value'     => 'testB',
+        //         'type'      => 'multi_line_text_field',
+        //         'ownerType' =>'PRODUCT'
+
+        // ]);
+        // $getMetafield = $shopify->getProductMetafields($productId);
+        $metafieldID = '21845395734704'; //testB
+        // $deleteMetafield = $shopify->deleteMetafield($metafieldID);
+        $updateMetafield = $shopify->updateMetafield($metafieldID,[
+
+            'value'     => 'testC',
+            'type'      => 'single_line_text_field'
+    ]);
+        return $updateMetafield;
 	}
 }
